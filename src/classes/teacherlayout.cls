@@ -19,7 +19,6 @@ public class teacherlayout {
         //Fees Details
         a1.Fees_Details__c = 'submited';
         a1.Fees_Submitted__c = 'yes';
-        a1.Is_Donation__c = 'no';
         
         insert a1;
         
