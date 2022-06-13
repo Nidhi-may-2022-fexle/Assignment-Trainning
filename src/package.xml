@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>students</members>
-        <members>teacherlayout</members>
+        <members>*</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -26,6 +25,9 @@
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
+        <members>Day5Assignment__c.assignment5__c</members>
+        <members>Dream_world__c.Dream_world__c</members>
+        <members>Hello_World__c.Hello_World__c</members>
         <members>StudentSubjects__c.STUDENT__c</members>
         <members>StudentSubjects__c.Subject__c</members>
         <members>Student__c.Account_Number__c</members>
@@ -89,11 +91,15 @@
         <members>Student__c.X4th_Sem_Percentage__c</members>
         <members>Student__c.X4th_sem_Subjects_in_which_Back__c</members>
         <members>Student__c.account_Mobile_Number__c</members>
+        <members>Teacher__c.College__c</members>
         <name>CustomField</name>
     </types>
     <types>
         <members>College__c</members>
+        <members>Day5Assignment__c</members>
+        <members>Dream_world__c</members>
         <members>Employee__c</members>
+        <members>Hello_World__c</members>
         <members>Pan_Card__c</members>
         <members>StudentSubjects__c</members>
         <members>Student__c</members>
@@ -103,14 +109,7 @@
         <name>CustomObject</name>
     </types>
     <types>
-        <members>College__c</members>
-        <members>Employee__c</members>
-        <members>Pan_Card__c</members>
-        <members>StudentSubjects__c</members>
-        <members>Student__c</members>
-        <members>Subject__c</members>
-        <members>Teacher__c</members>
-        <members>Year_of_Class__c</members>
+        <members>*</members>
         <name>CustomTab</name>
     </types>
     <types>
