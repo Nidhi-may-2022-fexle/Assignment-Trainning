@@ -92,6 +92,7 @@
         <members>Student__c.X4th_sem_Subjects_in_which_Back__c</members>
         <members>Student__c.account_Mobile_Number__c</members>
         <members>Teacher__c.College__c</members>
+        <members>day_3_assignment__c.day_3_assignment__c</members>
         <name>CustomField</name>
     </types>
     <types>
