@@ -5,6 +5,10 @@
         <name>ApexClass</name>
     </types>
     <types>
+        <members>PatternGenerator</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
         <members>Hello_World__c.Hello_World__c</members>
         <name>CustomField</name>
     </types>
