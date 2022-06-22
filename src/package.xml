@@ -5,6 +5,10 @@
         <name>ApexClass</name>
     </types>
     <types>
+        <members>PatternGenerator</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
         <members>Hello_World__c.Hello_World__c</members>
         <name>CustomField</name>
     </types>
@@ -135,5 +139,24 @@
         <members>Year_of_Class__c</members>
         <name>CustomTab</name>
     </types>
+
+    <types>
+		<members>PatternGenerator</members>
+		<members>updatingthebookprice</members>
+		<members>updatingthebookpriceTestClass</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>ApexTrigger</name>
+	</types>
+	<types>
+		<members>Book__c.Price__c</members>
+		<name>CustomField</name>
+	</types>
+	<types>
+		<members>Book__c</members>
+		<name>CustomObject</name>
+    </type>
     <version>53.0</version>
 </Package>
