@@ -157,6 +157,6 @@
 	<types>
 		<members>Book__c</members>
 		<name>CustomObject</name>
-	</types>
+    </type>
     <version>53.0</version>
 </Package>
