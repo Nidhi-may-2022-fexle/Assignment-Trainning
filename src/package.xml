@@ -158,5 +158,11 @@
 		<members>Book__c</members>
 		<name>CustomObject</name>
     </type>
+    <types>
+		<members>ColletionsPractices</members>
+		<members>PrimitiveDataTypePractice</members>
+		<name>ApexClass</name>
+    </types>
+
     <version>53.0</version>
 </Package>
