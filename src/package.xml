@@ -158,5 +158,10 @@
 		<members>Book__c</members>
 		<name>CustomObject</name>
     </type>
+    <types>
+		<members>expressionsAndOperatorsPractices</members>
+		<name>ApexClass</name>
+	</types>
+
     <version>53.0</version>
 </Package>
