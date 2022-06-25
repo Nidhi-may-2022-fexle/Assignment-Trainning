@@ -19,37 +19,37 @@ public class ColletionsPractices {
      *
      *   @return         :   void
      *
-     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Developer Name - Nidhi
+     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Developer Name - Nidhi Kumari
      * 
      **/
     //List Collection
     public static void listPractices(){
-        List<String> Dept = new List<String>{'CSE', 'Civil', 'ECE'};
-        System.debug(Dept);
+        List<String> DeptTest = new List<String>{'CSE', 'Civil', 'ECE'};
+        System.debug(DeptTest);
         //Add List Element
-        Dept.add('EEE');
-        Dept.add('IT');
-        System.debug(Dept);
+        DeptTest.add('EEE');
+        DeptTest.add('IT');
+        System.debug(DeptTest);
         //Add List element with index
-        Dept.add(0,'Mech');
-        Dept.add(4,'CS');
-        System.debug(Dept);
+        DeptTest.add(0,'Mech');
+        DeptTest.add(4,'CS');
+        System.debug(DeptTest);
         //Add all from list
-        List<String> Depttest = new List<String>();
-        Depttest.addAll(Dept);
-        System.debug(Depttest);
+        List<String> Depttest1 = new List<String>();
+        Depttest1.addAll(DeptTest);
+        System.debug(Depttest1);
         //size
-        Integer s = Dept.size();
-        System.debug(s);
+        Integer test = DeptTest.size();
+        System.debug(test);
         //get-index
-        String str = Dept.get(2);
+        String str = DeptTest.get(2);
         System.debug(str);
         //is empty
-        Boolean b = Dept.isEmpty();
-        System.debug(b);
+        Boolean bool = DeptTest.isEmpty();
+        System.debug(bool);
         //clone
         List<String> Depttest2 = new List<String>();
-        Depttest2 = Dept.clone();
+        Depttest2 = DeptTest.clone();
         System.debug(Depttest2);
         //clear
         Depttest2.clear();
@@ -65,7 +65,7 @@ public class ColletionsPractices {
      *
      *   @return         :   void
      *
-     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Developer Name - Nidhi
+     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Developer Name - Nidhi Kumari
      * 
      **/
     
@@ -89,13 +89,13 @@ public class ColletionsPractices {
         System.debug(mySet2);
 
         //create a new instance of the set class (signature :-- public Set<T>())
-        Set<String> s1 = new Set<String>();
-        s1.add('something');
-        s1.add('more');
-        System.debug(s1);
+        Set<String> str1 = new Set<String>();
+        str1.add('something');
+        str1.add('more');
+        System.debug(str1);
         //create a new instance to the set class by copying the element of the other (sign :- public Set<T>(Set<T> setToCopy))(SetToCopy)
-        Set<String> s2 = new Set<String>(s1);
-        System.debug(s2);
+        Set<String> str2 = new Set<String>(str1);
+        System.debug(str2);
 
     }
     /**
@@ -110,20 +110,20 @@ public class ColletionsPractices {
      * 
      **/
     public static void mapsPractices(){
-        Map<Integer, String> m = new Map<Integer, String>();
+        Map<Integer, String> mapOfIntegerWithString = new Map<Integer, String>();
         //Add items
-        m.put(1, 'First item');
-        m.put(2, 'Second item');
-        System.debug(m);
+        mapOfIntegerWithString.put(1, 'First item');
+        mapOfIntegerWithString.put(2, 'Second item');
+        System.debug(mapOfIntegerWithString);
         // Copy items
-        Map<Integer, String> m2 = new Map<Integer, String>(m);
-        System.debug(m2);
+        Map<Integer, String> mapOfIntegerWithString2 = new Map<Integer, String>(mapOfIntegerWithString);
+        System.debug(mapOfIntegerWithString2);
         //map methods
-        Account a = new Account( Name='Acme', BillingCity='New York');
+        Account acc = new Account( Name='Acme', BillingCity='New York');
 
         Map<Integer, Account> map1 = new Map<Integer, Account> {};
-        map1.put(1, a);
-        System.debug(a);
+        map1.put(1, acc);
+        System.debug(acc);
 
         Map<Integer, Account> map2 = map1.clone();
         map1.get(1).BillingCity = 'San Francisco';

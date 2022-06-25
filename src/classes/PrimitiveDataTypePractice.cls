@@ -77,9 +77,9 @@ public class PrimitiveDataTypePractice {
         //addDays(additionalDays)
         Datetime myDateTime = Datetime.newInstance(1960, 2, 17);
         Datetime newDateTime = myDateTime.addDays(2);
-        Datetime expected = Datetime.newInstance(1960, 2, 19);
-        System.assertEquals(expected, newDateTime);
-        System.debug(expected);
+        Datetime expectedDateTime = Datetime.newInstance(1960, 2, 19);
+        System.assertEquals(expectedDateTime, newDateTime);
+        System.debug(expectedDateTime);
         //addHours(additionalHours)
         DateTime myDateTimeA = DateTime.newInstance(1997, 1, 31, 7, 8, 16);
         DateTime newDateTimeA = myDateTimeA.addHours(3);
@@ -117,8 +117,8 @@ public class PrimitiveDataTypePractice {
      * 
      **/
     public static void doubleDataType(){
-        Double d = 5456.45;
-        System.debug(d);
+        Double data = 5456.45;
+        System.debug(data);
     }
     
     //ID Data Type
