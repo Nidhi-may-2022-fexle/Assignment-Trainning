@@ -151,20 +151,20 @@ public class PrimitiveDataTypePractice {
      * 
      **/
     public static void integerDatatype(){
-        Integer i = 1;
-        System.debug(i);
+        Integer intData = 1;
+        System.debug(intData);
     }
     //Long Data Type
     public static void longDataType(){
-        Long l = 545748458L;
-        System.debug(L);
+        Long longData = 545748458L;
+        System.debug(longData);
         
     }
     //Object Data Type(You can cast an object that represents a more specific data type to its underlying data type)
     public static void ObjectDataType(){
         Object o = 11;
-        Integer i = (Integer)o;
-        System.assertEquals(11, i);
+        Integer int2 = (Integer)o;
+        System.assertEquals(11, int2);
     }
     
 
