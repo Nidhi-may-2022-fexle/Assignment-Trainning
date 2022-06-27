@@ -162,6 +162,10 @@
 		<members>expressionsAndOperatorsPractices</members>
 		<name>ApexClass</name>
 	</types>
+		<members>ColletionsPractices</members>
+		<members>PrimitiveDataTypePractice</members>
+		<name>ApexClass</name>
+    </types>
 
     <version>53.0</version>
 </Package>
