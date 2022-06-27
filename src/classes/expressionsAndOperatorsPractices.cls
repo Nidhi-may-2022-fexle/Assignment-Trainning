@@ -10,6 +10,36 @@
 *
 **/
 public with sharing class expressionsAndOperatorsPractices {
+
+    /**
+     * 
+     *   @description    :   uses of operators
+     *
+     *   @args           :  
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Developer Name - Nidhi Kumari
+     * 
+     **/
+
+    public static void expressionsPractices(){
+        ///Literal Expressions
+        Integer var = 20 + 5;
+        String str = 'This Number is'+var;
+        System.debug(var);
+        System.debug(str);
+
+        //collection Expressions
+        Account acc = new Account(Id ='0015i000005BIogAAG');
+        Integer[] myArray = new Integer[10];
+        System.debug('Account Info = ' +acc);
+        System.debug('Integer Array = ' + myArray);
+        
+    }
+
+
+
 /**
      * 
      *   @description    :   uses of operators
@@ -21,7 +51,7 @@ public with sharing class expressionsAndOperatorsPractices {
      *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Developer Name - Nidhi Kumari
      * 
      **/
-    public static void expressionOperatorsPractices(){
+    public static void operatorsPractices(){
         Integer s = 45;
         s = s + 55;
         System.debug(s);
@@ -100,7 +130,7 @@ public with sharing class expressionsAndOperatorsPractices {
          System.debug(less);
          System.debug(notLess);
          System.debug(lessEqual);
-         //Less Than or Rqual To
+         //Less Than or equal To
          Boolean less2 = 12 <= 20;
          Boolean notLess2 = 9 <= 7;
          System.debug(less2);
@@ -135,7 +165,60 @@ public with sharing class expressionsAndOperatorsPractices {
         Boolean data2 = !data;
         System.debug(data);
         System.debug(data2);
+
+
+        //Ternary operator
+        Integer totalNumber = 80;
+        Integer firstNumber = 50;
+        Integer secondNumber = 30;
+        Boolean correct = firstNumber + secondNumber == totalNumber ? true : false;
+        System.debug(correct);
     }
+
+    /**
+     * 
+     *   @description    :   safe Navigation Operator Practices
+     *
+     *   @args           :  
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Developer Name - Nidhi Kumari
+     * 
+     **/
+
+    //Safe Navigation Operator
+    public static void safeNavigationOperator(){
+        String str ;
+        String[] outPut = str?.toUppercase().split(';');
+        System.debug(outPut);
+    }
+     /**
+     * 
+     *   @description    :   rule Of Conversion Practices
+     *
+     *   @args           :  
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Developer Name - Nidhi Kumari
+     * 
+     **/
+
+     //Rules of Conversion
+     public static void ruleOfConversionPractices(){
+        //Decimal To Integer
+        Decimal mydecval = 15.0;
+        Integer myintval = Integer.valueOf(mydecval);
+        System.debug(myintval);
+
+        //object to integer
+        String str = '32';
+        Integer data = Integer.valueOf(str);
+        System.debug(data);
+     }
+
+
 
 
 }
