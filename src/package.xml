@@ -159,6 +159,9 @@
 		<name>CustomObject</name>
     </type>
     <types>
+		<members>expressionsAndOperatorsPractices</members>
+		<name>ApexClass</name>
+	</types>
 		<members>ColletionsPractices</members>
 		<members>PrimitiveDataTypePractice</members>
 		<name>ApexClass</name>
