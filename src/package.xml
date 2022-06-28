@@ -163,6 +163,13 @@
 		<members>PrimitiveDataTypePractice</members>
 		<name>ApexClass</name>
     </types>
+    <types>
+		<members>conditionalLoopsClassPractices</members>
+		<members>methodOverloadingClass</members>
+		<members>methodOverridingChildClass</members>
+		<members>methodOverridingParentClass</members>
+		<name>ApexClass</name>
+	</types>
 
     <version>53.0</version>
 </Package>
