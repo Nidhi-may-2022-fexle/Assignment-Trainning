@@ -166,6 +166,20 @@
 		<members>PrimitiveDataTypePractice</members>
 		<name>ApexClass</name>
     </types>
+    <types>
+		<members>CustomerPurchaseOrder</members>
+		<members>EmployeePurchaseOrder</members>
+		<members>InheritanceChildClass</members>
+		<members>InheritanceParentClass</members>
+		<members>InstanceOfKeyword</members>
+		<members>PurchaseOrder</members>
+		<members>SellerPerchaseOrder</members>
+		<members>SubClass</members>
+		<members>SuperClass</members>
+		<members>ThisKeyword</members>
+		<name>ApexClass</name>
+	</types>
+
 
     <version>53.0</version>
 </Package>
