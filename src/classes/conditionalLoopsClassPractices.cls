@@ -31,17 +31,18 @@ public with sharing class conditionalLoopsClassPractices {
                 sign = -1;
             }
         }
+
         //else if 
         Integer place;
-        String medal_color;
+        String medalColor;
         if (place == 1) {
-            medal_color = 'gold';
+            medalColor = 'gold';
         } else if (place == 2) {
-            medal_color = 'silver';
+            medalColor = 'silver';
         } else if (place == 3) {
-            medal_color = 'bronze';
+            medalColor = 'bronze';
         } else {
-            medal_color = null;
+            medalColor = null;
         }
 
 
@@ -67,6 +68,52 @@ public with sharing class conditionalLoopsClassPractices {
             System.debug('Special Discount is not given as customer is not premium');
         }
     }
+
+    /**
+     * 
+     *   @description    :   While Loop
+     *
+     *   @args           :  
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Developer Name - Nidhi Kumari
+     * 
+     **/
+
+    public static void whileLoops(){
+        Integer intI =1;
+        while (intI<=10) {
+            
+            System.debug('print While Loop');
+            intI++;
+        }
+    }
+
+    public static void whileLoopWithList(){
+        List<Integer> intList = new List<Integer>{1,2,3,4,5};
+            system.debug('length of list' + intList.size());
+        Integer i = 0;
+        while(i < intList.size()){
+            System.debug(intList[i]);
+            i++;
+            if(i ==2){
+                system.debug('second element');
+            }
+        }
+
+    }
+
+
+    public static void whileLoopWithStudentsList(){
+        List<Student__c> studentsRecords = [SELECT Name, id FROM Student__c Limit 5 ];
+        Integer intL = 0;
+        while (intL<5) {
+            System.debug(studentsRecords[intL].Name);
+            intL++;
+            
+        }
+    }
 /**
      * 
      *   @description    :   Loop Practices
@@ -79,101 +126,91 @@ public with sharing class conditionalLoopsClassPractices {
      * 
      **/
     //Do-While Loops
-    public static void loopsPractices(){
-        Integer count = 1;
+    public static void doWhile(){
+        Integer inti = 0;
         do {
-            System.debug(count);
-            count++;
-        } while (count < 11);
+            System.debug(inti);
+            inti++;
+        } while (inti <= 10);  
 
-        //While Loop
-        Integer intData = 1;
-        
-        while (intData < 11) {
-            System.debug(intData);
-            count++;
-        }
+    }
 
-        
-        //For loop
-        for (Integer i = 0, j = 0; i < 10; i++) {
-            System.debug(i+1);
-        }
-
-        //List or Set Iteration for Loops
-
-        Integer[] myInts = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        for (Integer i : myInts) {
-            System.debug(i);
-        }
+    public static void doWhileWithList(){
+        List<Integer> intList = new List<Integer>{1,2,3,4,5};
+        Integer intL = 0;
+        do{
+            System.debug(intList[intL]);
+            intL++;
+            if(intL == 3){
+                System.debug('third element');
+            }
+        }while(intL <= 5);
 
 
     }
 
 
-     /**
+
+    public static void dowhileWithStudentList(){
+        List<Student__c> studentsList = [SELECT Name, id FROM Student__c Limit 5];
+        Integer i = 0;
+        system.debug(studentsList);
+        do{
+            
+            System.debug(studentsList[i].Name);
+            i++;
+        }while (i < 5);
+
+    }
+
+    /**
      * 
-     *   @description    :  Constructors
+     *   @description    :   for Loop Practices
      *
      *   @args           :  
      *
      *   @return         :   void
      *
-     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Developer Name - Nidhi Kumari
+     *   @revision Log   :   V1.1 - Created  - 06/29/2022 - Developer Name - Nidhi Kumari
      * 
      **/
-
-    //Using Constructors
-    public class TestObject2 {
-
-        private final Integer DEFAULT_SIZE = 10;
-        
-        Integer size;
-        
-           //Constructor with no arguments
-           public TestObject2() {
-               this(); // Using this(...DEFAULT_SIZE) calls the one argument constructor    
-           }
-           // Constructor with one argument 
-           public TestObject2(Integer ObjectSize) {
-             size = ObjectSize;  
-           }
-           TestObject2 myObject1 = new TestObject2(42);
-            TestObject2 myObject2 = new TestObject2();
-        }
-
-
-
-         /**
-     * 
-     *   @description    :  Call by value and call by reference 
-     *
-     *   @args           :  
-     *
-     *   @return         :   void
-     *
-     *   @revision Log   :   V1.1 - Created  - 06/27/2022 - Developer Name - Nidhi Kumari
-     * 
-     **/
-       
-
-        Student__c s1 = new Student__c();
-        Integer intI = 10;
-        public void ExampleC (){
-            manipulateReferenes(s1);
-            System.debug('Check Student Name...' + s1.Name);
-            checkCallByValue(intI);
-            System.debug('Check Int....' + intI);
-        }
-        public void manipulateReferenes(Student__c stData){
-            for(Integer i=0; i<10; i++){
-                stData.Name = stData.Name + i;
+    public static void forLoop(){
+        for(Integer i=1; i<=5; i++){
+            System.debug(i);
+            if(i == 2){
+                System.debug('print second ement');
             }
         }
-        public void checkCallByValue(Integer intI){
-            intI = 50;
-            System.debug('Check Int...' + intI);
+    }
+
+    public static void forLoopWithList(){
+        List<Integer> intList = new List<Integer>{1,2,3,4,5};
+        for (Integer intdata : intList){
+            System.debug(intdata);
+            if( intdata == 1){
+                System.debug('first element');
+            }
         }
+    }
     
+
+    public static void forLoopWithStudentList(){
+        for(Student__c studentsRecords : [SELECT Name, id FROM Student__c Limit 5]){
+            System.debug('The students name ' + studentsRecords);
+        }
+        
+    }
+
+
+    public static void forLoopWithMap(){
+        List<Contact> conList = [select Id,Name from Contact LIMIT 5];
+        Map<Id,Contact> mapOfContacts = new Map<Id,Contact>();
+        System.debug('');
+        for(Contact con : conList){
+            mapOfContacts.put(con.Id,con); 
+        }
+        system.debug('Map of Contact ' + mapOfContacts);
+    }
+
 
 }

@@ -164,6 +164,7 @@
 		<name>ApexClass</name>
     </types>
     <types>
+   		<members>InnerClassOuterClass</members>
 		<members>PassingMethodArgumentsPractices</members>
 		<members>conditionalLoopsClassPractices</members>
 		<members>methodOverloadingClass</members>

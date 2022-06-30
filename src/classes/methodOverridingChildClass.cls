@@ -11,6 +11,6 @@
 **/
 public class methodOverridingChildClass extends methodOverridingParentClass{
     public override void display(){
-        System.debug('This is form Child');
+        System.debug('This is Child Class');
     }
 }
