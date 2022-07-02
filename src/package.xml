@@ -167,6 +167,7 @@
 		<name>ApexClass</name>
     </types>
     <types>
+		<members>ProcessPurchesOrder</members>
 		<members>CustomerPurchaseOrder</members>
 		<members>EmployeePurchaseOrder</members>
 		<members>InheritanceChildClass</members>

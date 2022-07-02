@@ -10,7 +10,7 @@
 *
 **/
 public class InheritanceChildClass extends InheritanceParentClass {
-    public void childClassMethod (){
+    public void childClassMethod(){
         System.debug('Printing Child Class');
     }
     
