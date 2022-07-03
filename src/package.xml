@@ -167,6 +167,7 @@
 		<name>ApexClass</name>
     </types>
     <types>
+
 		<members>ProcessPurchesOrder</members>
 		<members>CustomerPurchaseOrder</members>
 		<members>EmployeePurchaseOrder</members>
@@ -178,6 +179,16 @@
 		<members>SubClass</members>
 		<members>SuperClass</members>
 		<members>ThisKeyword</members>
+		<name>ApexClass</name>
+	</types>
+
+
+   		<members>InnerClassOuterClass</members>
+		<members>PassingMethodArgumentsPractices</members>
+		<members>conditionalLoopsClassPractices</members>
+		<members>methodOverloadingClass</members>
+		<members>methodOverridingChildClass</members>
+		<members>methodOverridingParentClass</members>
 		<name>ApexClass</name>
 	</types>
 
