@@ -183,14 +183,17 @@
 	</types>
 
 
-   		<members>InnerClassOuterClass</members>
-		<members>PassingMethodArgumentsPractices</members>
-		<members>conditionalLoopsClassPractices</members>
-		<members>methodOverloadingClass</members>
-		<members>methodOverridingChildClass</members>
-		<members>methodOverridingParentClass</members>
-		<name>ApexClass</name>
-	</types>
+   	<types>
+        <members>ClassInterface</members>
+        <members>InheritanceChildClass</members>
+        <members>InheritanceParentClass</members>
+        <members>KeyWords</members>
+        <members>SubClass</members>
+        <members>SuperClass</members>
+        <members>interfaceClass</members>
+        <name>ApexClass</name>
+    </types>
+
 
 
     <version>53.0</version>
