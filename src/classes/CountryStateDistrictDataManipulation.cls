@@ -43,20 +43,6 @@ public with sharing class CountryStateDistrictDataManipulation {
 
         }
       
-        //aggregate Query on district
-        List<Country__c> updateCountryWithDistrict = new List<Country__c>();
-        AggregateResult[] districtAggregateResultWitCountry = [SELECT COUNT(Id) Total_District, State_Name__r.Country_Name__c countryId FROM District__c GROUP BY State_Name__r.Country_Name__c];
-        for(AggregateResult ar :districtAggregateResultWitCountry){
-            Country__c districtWithCountry = new Country__c();
-            districtWithCountry.Id = (Id)ar.get('countryId');
-            districtWithCountry.Total_Number_of_Districts__c = (Integer)ar.get('Total_District');
-            System.debug(districtWithCountry);
-        }
-        //update total number of district with country
-        if(updateCountryWithDistrict.size()>0){
-            update updateCountryWithDistrict;
-
-        }
 
         //agrregate Query on country
         List<Country__c> updateCountry = new List<Country__c>();
@@ -74,86 +60,67 @@ public with sharing class CountryStateDistrictDataManipulation {
             update updateCountry;
 
         }
-    }    
 
-     /**
-     * 
-     *   @description    :   Method for dynamically map filling
-     *
-     *   @args           :  
-     *
-     *   @return         :   void
-     *
-     *   @revision Log   :   V1.1 - Created  - 07/15/2022 - Developer Name - Nidhi Kumari
-     * 
-     **/
+
+        //Map fillinng
+        List<District__c> districtList = [SELECT Name, State_Name__r.Name, State_Name__r.Country_Name__r.Name FROM District__c];
+        if(districtList.size() >0){
+            for(District__c district : districtList){
+                if(!mapOfCountryWithStateAndDistrict.containskey(district.State_Name__r.Country_Name__r.Name)){
+                    mapOfCountryWithStateAndDistrict.put(district.State_Name__r.Country_Name__r.Name, New Map<String,List<String>>());
+                }
+                if(!mapOfCountryWithStateAndDistrict.get(district.State_Name__r.Country_Name__r.Name).containsKey(district.State_Name__r.Name)){
+                    mapOfCountryWithStateAndDistrict.get(district.State_Name__r.Country_Name__r.Name).put(district.State_Name__r.Name, new List<String>());
+                }
+                if(!mapOfCountryWithStateAndDistrict.get(district.State_Name__r.Country_Name__r.Name).get(district.State_Name__r.Name).contains(district.Name)){
+                    mapOfCountryWithStateAndDistrict.get(district.State_Name__r.Country_Name__r.Name).get(district.State_Name__r.Name).add(district.Name);
+                
+
+                }
+                
+            }
+            System.debug('Mappp -> ' + mapOfCountryWithStateAndDistrict);
+            System.debug(mapOfCountryWithStateAndDistrict);
+        }
+    
+    }
+
 
     public CountryStateDistrictDataManipulation(String latter){
-        List<District__c> district = new List<District__c>();
-        district = [SELECT  Name,State_Name__r.Name FROM District__c];
-
-        List<State__c> state = new List<State__c>();
-        state = [SELECT Name, Country_Name__r.Name FROM State__c];
-
-        List<Country__c> country = new List<Country__c>();
-        country = [SELECT Name FROM Country__c];
-
-
-
-        for(Country__c countries : country){
-            mapOfCountryWithStateAndDistrict.put(countries.Name, New Map<string ,List<string>>());
-                for(State__c states : state){
-                    if(states.Country_Name__r.Name == countries.Name){
-                        mapOfCountryWithStateAndDistrict.get(countries.Name).put(states.Name, New List<String>());
-
-                        for(District__c districts : district){
-                            List<String> listOfDistrict = new List<String>();
-                            if(districts.State_Name__r.Name == states.Name){
-                                listOfDistrict.add(districts.Name);
-                                mapOfCountryWithStateAndDistrict.get(countries.Name).get(states.Name).addAll(listOfDistrict);
-
-                            }
+        List<String> listOfCountryStateDistrict = new List<String>();
+        List<District__c> listWithcombination = [SELECT Name, State_Name__r.Name, State_Name__r.Country_Name__r.Name FROM District__c];
+        for(District__c totalList : listWithcombination){
+            if(!mapOfCountryWithStateAndDistrict.containskey(totalList.State_Name__r.Country_Name__r.Name)){
+                mapOfCountryWithStateAndDistrict.put(totalList.State_Name__r.Country_Name__r.Name, New Map<String,List<String>>());
+            }
+            if(!mapOfCountryWithStateAndDistrict.get(totalList.State_Name__r.Country_Name__r.Name).containsKey(totalList.State_Name__r.Name)){
+                mapOfCountryWithStateAndDistrict.get(totalList.State_Name__r.Country_Name__r.Name).put(totalList.State_Name__r.Name, new List<String>());
+            }
+            if(!mapOfCountryWithStateAndDistrict.get(totalList.State_Name__r.Country_Name__r.Name).get(totalList.State_Name__r.Name).contains(totalList.Name)){
+                mapOfCountryWithStateAndDistrict.get(totalList.State_Name__r.Country_Name__r.Name).get(totalList.State_Name__r.Name).add(totalList.Name);
+                if(totalList.State_Name__r.Country_Name__r.Name.startsWithIgnoreCase(latter)){
+                    if(totalList.State_Name__r.Name.startsWithIgnoreCase(latter)){
+                        if(totalList.Name.startsWithIgnoreCase(latter)){
+                            listOfCountryStateDistrict.add(totalList.State_Name__r.Country_Name__r.Name + ' - ' + totalList.State_Name__r.Name + ' - ' + totalList.Name);
                         }
                     }
-                
                 }
+
+            }
+            
         }
-        
-        System.debug(mapOfCountryWithStateAndDistrict);
+        System.debug('listOfCountryStateDistrict -> ' + listOfCountryStateDistrict);
+   
     }
 
-     /**
-     * 
-     *   @description    :   Method to print the country state and district name start with s
-     *
-     *   @args           :  
-     *
-     *   @return         :   void
-     *
-     *   @revision Log   :   V1.1 - Created  - 07/15/2022 - Developer Name - Nidhi Kumari
-     * 
-     **/
 
-    public void letterStartWithMethod (String Latter){
-        for(String countries : mapOfCountryWithStateAndDistrict.keySet() ){
-            if (countries.startsWith('Latter')){
-                for (string states : mapOfCountryWithStateAndDistrict.get(countries).keyset()){
-                    if (states.startsWith('Latter')){
-                        for(string districts : mapOfCountryWithStateAndDistrict.get(countries).get(states)){
-                            if (districts.startsWith('Latter')){
-                                system.debug(countries + '--' + states + '--' + districts );
-                            }
-                                
-                        }
-                        
-                    }
-                }
-                    
-            }   
 
-        }
+       
+    
 
-    }
+    
+            
+
 
      /**
      * 
@@ -198,7 +165,7 @@ public with sharing class CountryStateDistrictDataManipulation {
      * 
      **/
 
-    public void CountryJSONGenerator(String countryName){
+    public void CountryJSONGenerator(String CountryName){
         List<Country__c> countries = [SELECT Name, Total_Number_of_Districts__c, Total_Number_of_States__c, Country_Code__c, Country_JSON_Data__c FROM Country__c WHERE Name =:CountryName];
         if(countries.size() > 0){
             List<StateWrapperClass> StateWrapperObjectList = new List<StateWrapperClass>();
