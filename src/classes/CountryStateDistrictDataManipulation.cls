@@ -85,40 +85,34 @@ public with sharing class CountryStateDistrictDataManipulation {
     
     }
 
+    
+    /**
+     * 
+     *   @description    :   Method for finding combination of country , state and district name with same latter
+     *
+     *   @args           :  
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 07/05/2022 - Developer Name - Nidhi Kumari
+     * 
+     **/
 
-    public CountryStateDistrictDataManipulation(String latter){
-        List<String> listOfCountryStateDistrict = new List<String>();
-        List<District__c> listWithcombination = [SELECT Name, State_Name__r.Name, State_Name__r.Country_Name__r.Name FROM District__c];
-        for(District__c totalList : listWithcombination){
-            if(!mapOfCountryWithStateAndDistrict.containskey(totalList.State_Name__r.Country_Name__r.Name)){
-                mapOfCountryWithStateAndDistrict.put(totalList.State_Name__r.Country_Name__r.Name, New Map<String,List<String>>());
-            }
-            if(!mapOfCountryWithStateAndDistrict.get(totalList.State_Name__r.Country_Name__r.Name).containsKey(totalList.State_Name__r.Name)){
-                mapOfCountryWithStateAndDistrict.get(totalList.State_Name__r.Country_Name__r.Name).put(totalList.State_Name__r.Name, new List<String>());
-            }
-            if(!mapOfCountryWithStateAndDistrict.get(totalList.State_Name__r.Country_Name__r.Name).get(totalList.State_Name__r.Name).contains(totalList.Name)){
-                mapOfCountryWithStateAndDistrict.get(totalList.State_Name__r.Country_Name__r.Name).get(totalList.State_Name__r.Name).add(totalList.Name);
-                if(totalList.State_Name__r.Country_Name__r.Name.startsWithIgnoreCase(latter)){
-                    if(totalList.State_Name__r.Name.startsWithIgnoreCase(latter)){
-                        if(totalList.Name.startsWithIgnoreCase(latter)){
-                            listOfCountryStateDistrict.add(totalList.State_Name__r.Country_Name__r.Name + ' - ' + totalList.State_Name__r.Name + ' - ' + totalList.Name);
-                        }
+     public CountryStateDistrictDataManipulation(String latter) {
+        List<String> listWithcombination = new list<String>();
+        List<District__c> listWithDistrict = [Select Name, State_Name__r.Name, State_Name__r.Country_Name__r.Name From District__c];
+        for(District__c totalList : listWithDistrict) {
+            If(totalList.State_Name__r.Country_Name__r.Name.startsWithIgnoreCase(latter)) {
+                If(totalList.State_Name__r.Name.startsWithIgnoreCase(latter)) {
+                    If(totalList.Name.startsWithIgnoreCase(latter)) {
+                        listWithcombination.add(totalList.State_Name__r.Country_Name__r.Name + ' ... ' + totalList.State_Name__r.Name + ' ..' + totalList.Name);
                     }
                 }
-
             }
-            
         }
-        System.debug('listOfCountryStateDistrict -> ' + listOfCountryStateDistrict);
-   
+        System.debug('listWithcombination' + listWithcombination);
     }
 
-
-
-       
-    
-
-    
             
 
 
