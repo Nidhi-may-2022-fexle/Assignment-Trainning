@@ -31,7 +31,7 @@ public with sharing class expressionsAndOperatorsPractices {
         System.debug(str);
 
         //collection Expressions
-        Account acc = new Account(Id ='0015i000005BIogAAG');
+        Account acc = new Account(Id ='0015i00000857dMAAQ');
         Integer[] myArray = new Integer[10];
         System.debug('Account Info = ' +acc);
         System.debug('Integer Array = ' + myArray);

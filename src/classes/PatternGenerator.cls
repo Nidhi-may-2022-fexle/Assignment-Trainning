@@ -20,6 +20,33 @@ public with sharing class PatternGenerator {
             }
 
         }
+
+//Hollow Triangle Printing Pattern
+
+
+        public static void HollowTrianglePrintingPattern(){
+            integer n=9;
+            for(integer i=0;i<=(n-1)/2;i++){
+                string s = ' ';
+                if(i==0){
+                    for(integer j=0;j<n;j++)
+                        s+='*';
+                    System.debug(s);
+                }    
+                else{
+                    for(integer j=0;j<n;j++){
+                        if(i==j || i+j==n-1)
+                            s+='*';
+                        else
+                            s+='_';
+                    }
+                    System.debug(s);
+                }
+            }
+        }
+
+
+
 //Down Triangle Pattern
         public static void CreateDownTrianglePattern(){
             boolean b=true;
