@@ -16,7 +16,6 @@
         <members>State__c.State_Code__c</members>
         <members>State__c.State_s_Country__c</members>
         <members>State__c.Total_Number_of_Districts__c</members>
-        <members>Student__c.State__c</members>
         <name>CustomField</name>
     </types>
     <types>
