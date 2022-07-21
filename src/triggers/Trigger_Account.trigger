@@ -10,11 +10,16 @@
 **/
 trigger Trigger_Account on Account (before insert, after insert) {
     if(Trigger.isBefore){
-        TriggerAccountHandlerClass.accountNumberSelection(Trigger.New);
+        if(Trigger.isInsert){
+             TriggerAccountHandler.accountNumberSelection(Trigger.New);
+            
+        }
     }
 
-    if(Trigger.isInsert && Trigger.isAfter){
-        TriggerAccountHandlerClass.confirmationMail(Trigger.New);
+    if(Trigger.isAfter){
+        if(Trigger.isInsert){
+            TriggerAccountHandler.confirmationMail(Trigger.New);
+        }
     }
 
 }

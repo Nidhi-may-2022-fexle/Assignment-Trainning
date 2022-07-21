@@ -60,7 +60,7 @@ public class TriggerAccountHandler {
         for(Account acc : accounts){
             Messaging.SingleEmailMessage mail =  new Messaging.SingleEmailMessage();
             mail.setToAddresses(new List<String>{acc.Email__c});
-            mail.setSubject('Dear,' +acc.Name + '\n' + ' Your Account Has been Created, Please Find the detail below ');
+            mail.setSubject('Dear,' +acc.Name + ' Your Account Has been Created, Please Find the detail below ');
             String body = 'Hello there, Congratulation your account has been created, '+acc.Name+' With Account Number '+ acc.AccountNumber;
             mail.setHtmlBody(body);
 			emailList.add(mail);
