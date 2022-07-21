@@ -1,46 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>CountryStateDistrictDataManipulation</members>
+        <members>TriggerAccountHandler</members>
         <name>ApexClass</name>
     </types>
     <types>
-        <members>Country__c.Country_Code__c</members>
-        <members>Country__c.Country_JSON_Data__c</members>
-        <members>Country__c.Total_Number_of_Districts__c</members>
-        <members>Country__c.Total_Number_of_States__c</members>
-        <members>District__c.Country_Name__c</members>
-        <members>District__c.District_Pin_Code__c</members>
-        <members>District__c.State_Name__c</members>
-        <members>State__c.Country_Name__c</members>
-        <members>State__c.State_Code__c</members>
-        <members>State__c.State_s_Country__c</members>
-        <members>State__c.Total_Number_of_Districts__c</members>
+        <members>Trigger_Account</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>Account.Account_Type__c</members>
+        <members>Account.Email__c</members>
         <name>CustomField</name>
-    </types>
-    <types>
-        <members>Country__c</members>
-        <members>District__c</members>
-        <members>State__c</members>
-        <name>CustomObject</name>
-    </types>
-    <types>
-        <members>Country__c</members>
-        <members>District__c</members>
-        <members>State__c</members>
-        <name>CustomTab</name>
-    </types>
-    <types>
-        <members>Country__c-Country Layout</members>
-        <members>District__c-District Layout</members>
-        <members>State__c-State Layout</members>
-        <name>Layout</name>
-    </types>
-    <types>
-        <members>Country__c</members>
-        <members>District__c</members>
-        <members>State__c</members>
-        <name>SharingRules</name>
     </types>
     <version>53.0</version>
 </Package>
