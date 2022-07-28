@@ -34,6 +34,7 @@ public class TriggerAccountHandler {
                 acc.AccountNumber='FD-'+randomNumber;
             }
             if(acc.Account_Type__c=='Current Account' ){
+                acc.AccountNumber='CA-'+randomNumber;
 
             }
              system.debug(acc.AccountNumber);
@@ -75,5 +76,45 @@ public class TriggerAccountHandler {
 
             
         }
+    
+    
+    public static void updateCheck(List<Account> newaccounts, List<Account> oldaccounts){
+        system.debug('Check Update List ::: Trigger.New ' + newaccounts);
+        system.debug('Check Update List ::: Trigger.Old ' + oldaccounts);
+    }
+    
+    public static void checkTriggerType(Map<Id, Account> newMap, Map<Id, Account> oldMap){
+        system.debug('Check ::: Trigger.NewMap ' + newMap);
+        system.debug('Check ::: Trigger.OldMap ' + oldMap);
+    }
+    
+    
+    /**
+     * 
+     *   @description    :  Method to insert contact if account is inserted with the Name 
+     * 
+     *
+     *   @args           :  
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 07/28/2022 - Developer Name - Nidhi Kumari
+     * 
+     **/
+    
+    public static void afterInsertExample(List<Account> acc){
+        List<contact> conList =new List<contact>();
+        for(Account obj:acc){
+            contact con=new contact();
+            con.FirstName='Testing contact';
+            con.LastName='Last Name';
+            con.AccountId=obj.id;
+            conList.add(con);
+        }
+        if(conList.size() > 0){
+            insert conList;
+        }
+    }
+    
         
 }
