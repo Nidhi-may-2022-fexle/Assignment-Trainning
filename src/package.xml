@@ -11,10 +11,10 @@
         <name>ApexTrigger</name>
     </types>
     <types>
+        <members>Account.Discount__c</members>
         <members>Trigger_Example__c.Description__c</members>
         <members>Trigger_Example__c.Evalution__c</members>
         <members>Trigger_Example__c.Marks__c</members>
-        <members>Trigger_Example__c.Percentage__c</members>
         <members>Trigger_Example__c.Status__c</members>
         <members>Trigger_Example__c.Text__c</members>
         <name>CustomField</name>
