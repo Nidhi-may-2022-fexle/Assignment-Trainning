@@ -187,6 +187,13 @@ public class TriggerAccountHandler {
             }
         }
     }
-    
         
 }
+
+
+/*
+ * DML operation cann't performed on Trigger.New and Trigger.Old 
+ * We use Trigger.New and Trigger.old in Trigger.isBefore and Trigger.isAfter operations
+ * Before triggers are used to performe the logic on the same object and trigger fired before the data save into the database
+ * 
+ */
