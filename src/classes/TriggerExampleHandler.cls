@@ -45,12 +45,13 @@ public class TriggerExampleHandler {
     public static void beforeUpdate(List<Trigger_Example__c> examples){
         //to update Evalution When percentage is inserted 
         for(Trigger_Example__c obj : examples){
-            if(obj.Percentage__c == '>= 50'){
-                obj.Evalution__c = 'Pass';
+            if(obj.Evalution__c == 'Pass'){
+                obj.Review__c = 'Cleared the Exam';
             }else{
-                obj.Evalution__c = 'Fail';
+                obj.Review__c = 'Fail to Clear';
             }
         }
+        
     }
     
     /**

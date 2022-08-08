@@ -198,28 +198,14 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Percentage__c</fullName>
+        <fullName>Review__c</fullName>
         <externalId>false</externalId>
-        <label>Percentage</label>
+        <label>Review</label>
+        <length>200</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>&lt;= 39</fullName>
-                    <default>false</default>
-                    <label>&lt;= 39</label>
-                </value>
-                <value>
-                    <fullName>&gt;= 50</fullName>
-                    <default>false</default>
-                    <label>&gt;= 50</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Status__c</fullName>

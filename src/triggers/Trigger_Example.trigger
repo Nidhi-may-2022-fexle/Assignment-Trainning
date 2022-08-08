@@ -19,10 +19,8 @@ trigger Trigger_Example on Trigger_Example__c (before insert, after insert, befo
     }
     
     if(Trigger.isbefore){
-        if(trigger.isInsert){
-            if(Trigger.isupdate){
-                TriggerExampleHandler.beforeUpdate(Trigger.New);
-            }
+        if(trigger.isInsert || Trigger.isupdate){
+            TriggerExampleHandler.beforeUpdate(Trigger.New);
         }
     }
     

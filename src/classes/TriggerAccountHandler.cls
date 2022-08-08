@@ -116,5 +116,77 @@ public class TriggerAccountHandler {
         }
     }
     
+    /**
+     * 
+     *   @description    :  According to annual revenue change account type
+     * 
+     *
+     *   @args           :  
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 08/04/2022 - Developer Name - Nidhi Kumari
+     * 
+     **/
+    
+    public static void accountRevenue(List<Account> accList){
+        for(Account acc : accList){
+            if(acc.AnnualRevenue >= 1000000000){
+                acc.Type = 'Strategic Account';
+            }
+            else if(acc.AnnualRevenue >1000000000 && acc.AnnualRevenue <1000000000){
+                acc.Type = 'Growth Account';
+            }
+        }
+        system.debug(accList);
+        
+    }
+    
+     /**
+     * 
+     *   @description    :  is field will update with trigger.old or not
+     * 
+     *
+     *   @args           :  
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 08/04/2022 - Developer Name - Nidhi Kumari
+     * 
+     **/
+    
+    public static void AccountDiscount(List<Account> accList, List<Account> olAccList){
+        Integer count = 0;
+        for(Account acc : accList){
+            if(acc.AnnualRevenue!=olAccList[count].AnnualRevenue && acc.AnnualRevenue>100000000){
+                acc.Discount__c = 50;
+            }
+            count++;
+        }
+        system.debug(accList);
+    }
+    
+     /**
+     * 
+     *   @description    :  Phone number Validation
+     * 
+     *
+     *   @args           :  
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 08/04/2022 - Developer Name - Nidhi Kumari
+     * 
+     **/
+    
+    public static void phoneNumberValidation(List<Account> accList){
+        for(Account acc : accList){
+           String phone = acc.Phone;
+            if(phone.length() > 10){
+                acc.Phone.AddError('Enter Valid Phone Number');
+            }
+        }
+    }
+    
         
 }
