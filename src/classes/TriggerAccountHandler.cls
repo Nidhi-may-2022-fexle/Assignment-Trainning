@@ -34,6 +34,7 @@ public class TriggerAccountHandler {
                 acc.AccountNumber='FD-'+randomNumber;
             }
             if(acc.Account_Type__c=='Current Account' ){
+                acc.AccountNumber='CA-'+randomNumber;
 
             }
              system.debug(acc.AccountNumber);
@@ -75,5 +76,124 @@ public class TriggerAccountHandler {
 
             
         }
+    
+    
+    public static void updateCheck(List<Account> newaccounts, List<Account> oldaccounts){
+        system.debug('Check Update List ::: Trigger.New ' + newaccounts);
+        system.debug('Check Update List ::: Trigger.Old ' + oldaccounts);
+    }
+    
+    public static void checkTriggerType(Map<Id, Account> newMap, Map<Id, Account> oldMap){
+        system.debug('Check ::: Trigger.NewMap ' + newMap);
+        system.debug('Check ::: Trigger.OldMap ' + oldMap);
+    }
+    
+    
+    /**
+     * 
+     *   @description    :  Method to insert contact if account is inserted with the Name 
+     * 
+     *
+     *   @args           :  
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 07/28/2022 - Developer Name - Nidhi Kumari
+     * 
+     **/
+    
+    public static void afterInsertExample(List<Account> acc){
+        List<contact> conList =new List<contact>();
+        for(Account obj:acc){
+            contact con=new contact();
+            con.FirstName='Testing contact';
+            con.LastName='Last Name';
+            con.AccountId=obj.id;
+            conList.add(con);
+        }
+        if(conList.size() > 0){
+            insert conList;
+        }
+    }
+    
+    /**
+     * 
+     *   @description    :  According to annual revenue change account type
+     * 
+     *
+     *   @args           :  
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 08/04/2022 - Developer Name - Nidhi Kumari
+     * 
+     **/
+    
+    public static void accountRevenue(List<Account> accList){
+        for(Account acc : accList){
+            if(acc.AnnualRevenue >= 1000000000){
+                acc.Type = 'Strategic Account';
+            }
+            else if(acc.AnnualRevenue >1000000000 && acc.AnnualRevenue <1000000000){
+                acc.Type = 'Growth Account';
+            }
+        }
+        system.debug(accList);
+        
+    }
+    
+     /**
+     * 
+     *   @description    :  is field will update with trigger.old or not
+     * 
+     *
+     *   @args           :  
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 08/04/2022 - Developer Name - Nidhi Kumari
+     * 
+     **/
+    
+    public static void AccountDiscount(List<Account> accList, List<Account> olAccList){
+        Integer count = 0;
+        for(Account acc : accList){
+            if(acc.AnnualRevenue!=olAccList[count].AnnualRevenue && acc.AnnualRevenue>100000000){
+                acc.Discount__c = 50;
+            }
+            count++;
+        }
+        system.debug(accList);
+    }
+    
+     /**
+     * 
+     *   @description    :  Phone number Validation
+     * 
+     *
+     *   @args           :  
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 08/04/2022 - Developer Name - Nidhi Kumari
+     * 
+     **/
+    
+    public static void phoneNumberValidation(List<Account> accList){
+        for(Account acc : accList){
+           String phone = acc.Phone;
+            if(phone.length() > 10){
+                acc.Phone.AddError('Enter Valid Phone Number');
+            }
+        }
+    }
         
 }
+
+
+/*
+ * DML operation cann't performed on Trigger.New and Trigger.Old 
+ * We use Trigger.New and Trigger.old in Trigger.isBefore and Trigger.isAfter operations
+ * Before triggers are used to performe the logic on the same object and trigger fired before the data save into the database
+ * 
+ */
