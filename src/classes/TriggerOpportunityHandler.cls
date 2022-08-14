@@ -294,8 +294,7 @@ public class TriggerOpportunityHandler {
                            messageDetail2+= '<b> Unsuccessful:</b> <table border="1" cellpadding=5 cellspacing=0>' + '<tr><th>Automobile Type</th><th>Name</th> <th>Message</th></tr>';
                            for(String tag : tagSet){
                                if(!tag.startsWith('00:11:CE:00') && !tag.startsWith('00:11:CE:D') && !tag.startsWith('00:11:CE:E') && !tag.substring(0,3).isNumeric()
-                                 && (opp.StageName == 'Prospect' || opp.StageName == 'Qualification' || opp.StageName=='Processing' || opp.StageName=='Closed Lost'
-                                     || opp.StageName == 'Return To HQ' || opp.StageName == 'Shipped To Customer' || opp.StageName == 'Return to Customer')){
+                                 && (opp.StageName == 'Return To HQ' || opp.StageName == 'Shipped To Customer' || opp.StageName == 'Return to Customer')){
                                      
                                    messageDetail2+= '<tr><td>Sensor</td><td>'+tag+'</td><td>Invalid sensor</td></tr>';
                                    system.debug('Invalid sensor -->' + messageDetail);
