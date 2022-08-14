@@ -107,6 +107,7 @@ public class TriggerOpportunityHandler {
                                           updateRecordList.add(automoblieSensorRecord);
                                           System.debug('line 79 -> ' + automoblieSensorRecord);
                                       }
+                                      
                                       if(opp.StageName == 'Return to Customer' && automoblieSensorRecord.Account__c == opp.Installation_Account__c){
                                           messageDetail+= '<tr><td>Sensor</td><td>'+tagDetail+'</td><td>Sensor cannot inserted  under installation account' + opp.Installation_Account__c + 'b/c it is already exists under the installation account.</td></tr>';
                                           system.debug('update automobile sensore -->' + messageDetail);
@@ -316,7 +317,7 @@ public class TriggerOpportunityHandler {
             Insert insertRecordList;
         }
         if(emailList.size()>0){
-         //  Messaging.sendEmail(emailList);
+           Messaging.sendEmail(emailList);
         }
     }
     
