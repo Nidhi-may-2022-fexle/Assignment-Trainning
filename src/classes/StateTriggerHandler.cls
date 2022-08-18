@@ -85,24 +85,16 @@ public class StateTriggerHandler {
                 stateIdSet.add(state.Country_Name__c);
             }
         }
-        system.debug('---->' + stateIdSet);
        
         if(oldStateList!=null){
             for(State__c state : oldStateList){
                 stateIdSet.add(state.Country_Name__c);
             }
         }
-        system.debug('---' + stateIdSet);
-        
-        /*List<State__c> stateOldList = [SELECT Id, Country_Name__c FROM State__c WHERE Id IN:stateIdSet];
-        set<Id> countryIdSet = new set<Id>();
-        for(State__c state : stateOldList){
-            countryIdSet.add(state.Country_Name__c);
-        }*/
-        
+
         Map<Id, Country__c> countryMap = new Map<Id, Country__c>([SELECT Id, Name, Country_Code__c, Country_JSON_Data__c,Total_Number_of_Districts__c,
                                                                   Total_Number_of_States__c FROM Country__C WHERE Id IN:stateIdSet]);
-        system.debug('map Line 94' + countryMap);
+
         Map<Id, State__c> stateMap = new Map<Id, State__c>([SELECT Id, Name, Total_Number_of_Districts__c,Country_Name__c
                                                            FROM State__c WHERE Country_Name__c IN: stateIdSet]);
         
