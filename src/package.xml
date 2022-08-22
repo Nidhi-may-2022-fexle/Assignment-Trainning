@@ -1,55 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>TriggerOpportunityHandler</members>
+        <members>AccountQueueableExample</members>
+        <members>AccountQueueableExampleTest</members>
+        <members>BatchApexExample</members>
+        <members>BatchApexExampleTest</members>
+        <members>BatchDelete</members>
+        <members>FutureMethodClass</members>
+        <members>OwnerReassignment</members>
+        <members>scheduledBatchableClass</members>
         <name>ApexClass</name>
-    </types>
-    <types>
-        <members>Trigger_Opportunity</members>
-        <name>ApexTrigger</name>
-    </types>
-    <types>
-        <members>Automobile_Presence_Sensor__c.Account__c</members>
-        <members>Automobile_Presence_Sensor__c.Opportunity__c</members>
-        <members>Automobile_Sensor__c.Account__c</members>
-        <members>Automobile_Sensor__c.Opportunity__c</members>
-        <members>Automobile_TDU__c.Account__c</members>
-        <members>Automobile_TDU__c.Opportunity__c</members>
-        <members>Automobile_Tag__c.Account__c</members>
-        <members>Automobile_Tag__c.Opportunity__c</members>
-        <members>Opportunity.Automobile_Tag_Details_1__c</members>
-        <members>Opportunity.Automobile_Tag_Details_2__c</members>
-        <members>Opportunity.Automobile_Tag_Details_3__c</members>
-        <members>Opportunity.Installation_Account__c</members>
-        <members>Opportunity.Return_To_HQ__c</members>
-        <members>Opportunity.Shipment_Account__c</members>
-        <name>CustomField</name>
-    </types>
-    <types>
-        <members>Automobile_Presence_Sensor__c</members>
-        <members>Automobile_Sensor__c</members>
-        <members>Automobile_TDU__c</members>
-        <members>Automobile_Tag__c</members>
-        <name>CustomObject</name>
-    </types>
-    <types>
-        <members>Automobile_Presence_Sensor__c</members>
-        <members>Automobile_Sensor__c</members>
-        <members>Automobile_TDU__c</members>
-        <members>Automobile_Tag__c</members>
-        <name>CustomTab</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Profile</name>
-    </types>
-    <types>
-        <members>Automobile_Presence_Sensor__c</members>
-        <members>Automobile_Sensor__c</members>
-        <members>Automobile_TDU__c</members>
-        <members>Automobile_Tag__c</members>
-        <members>Opportunity</members>
-        <name>SharingRules</name>
     </types>
     <version>53.0</version>
 </Package>
