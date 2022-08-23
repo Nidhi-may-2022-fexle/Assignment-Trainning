@@ -22,7 +22,9 @@ public class ContactTriggerHandler {
      * 
      **/
     public static void contactPropertyaccountSync(List<Contact> contactList, Map<Id,Contact>oldMap){
-        List<Account> accountList = new List<Account>();
+        
+        
+        //set of contact ids with account Ids
         set<Id> setOfId = new set<Id>();
         
         for(Contact con : contactList){

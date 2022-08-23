@@ -24,8 +24,11 @@ public class StateTriggerHandler {
      **/
     
     public static void countStateOnCountry(List<State__c> stateNewList, List<State__c> stateOldList){
+        
+        //set of state id with country
         set<id> countryIdSet = new set<Id>();
         
+        //state new list
         if(stateNewList!=null){
             for(State__c state : stateNewList){
                 if(state.Id!=Null){
@@ -36,6 +39,7 @@ public class StateTriggerHandler {
             }
         }
         
+        //state old list
         if(stateOldList!=null){
             for(State__c state : stateOldList){
                 if(state.Id!=null){
@@ -45,15 +49,16 @@ public class StateTriggerHandler {
             }
         }
         
-        
+        //List to update number of state on country 
         List<Country__c> totalStateToUpdateOnCountry = new List<Country__c>();
         
+        //list on country with old data
         List<Country__c> countryOldList = [SELECT Id, Name , Country_JSON_Data__c ,Total_Number_of_Districts__c, Total_Number_of_States__c, (SELECT Id FROM States__r)
                                            FROM Country__c WHERE Id IN: countryIdSet];
+        
+        	//function to count total number of state on country
             for(Country__c country : countryOldList){
                 if(countryIdSet != Null){
-                    Country__c countryRecord = new Country__c();
-                    country.Total_Number_of_States__c = (Integer)countryRecord.get('Total_Number_of_States__c');
                     country.Total_Number_of_States__c = country.States__r.Size();
                     totalStateToUpdateOnCountry.add(country);
                 }
@@ -78,30 +83,37 @@ public class StateTriggerHandler {
      **/
     
     public static void countryJsonDataFill(List<State__c> stateNewList, List<State__c> oldStateList){
+        
+        //set of state id with country
         set<id> stateIdSet = new set<Id>();
         
+        //new state list
         if(stateNewList!=null){
             for(State__c state : stateNewList){
                 stateIdSet.add(state.Country_Name__c);
             }
         }
        
+        //old state list
         if(oldStateList!=null){
             for(State__c state : oldStateList){
                 stateIdSet.add(state.Country_Name__c);
             }
         }
 
+        //map on country with data
         Map<Id, Country__c> countryMap = new Map<Id, Country__c>([SELECT Id, Name, Country_Code__c, Country_JSON_Data__c,Total_Number_of_Districts__c,
                                                                   Total_Number_of_States__c FROM Country__C WHERE Id IN:stateIdSet]);
 
+        //map on state with data
         Map<Id, State__c> stateMap = new Map<Id, State__c>([SELECT Id, Name, Total_Number_of_Districts__c,Country_Name__c
                                                            FROM State__c WHERE Country_Name__c IN: stateIdSet]);
         
+        //map on district with data
         Map<Id, District__c> districtMap = new Map<Id,District__c>([SELECT Id, Name, State_Name__c, State_Name__r.Country_Name__c 
                                                                    FROM District__c WHERE State_Name__r.Country_Name__c  IN: stateIdSet]); 
         
-        
+        //function to fill json data on country with wrapper class
         if(!countryMap.isEmpty()){
             
             for(Country__c country : countryMap.values()){

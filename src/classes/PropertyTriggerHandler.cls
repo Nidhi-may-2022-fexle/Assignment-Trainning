@@ -24,13 +24,16 @@ public class PropertyTriggerHandler {
      **/
     
     public static void PropertyContactaccountSync(List<Property__c> propertyList, Map<Id,Property__c>oldMap){
-        Set<Id> setOfIds = new Set<Id>();
         
+        //set of property id with Account Id
+        Set<Id> setOfIds = new Set<Id>();
         for(Property__c property : propertyList){
             setOfIds.add(property.Account__c);
         }
         
         Map<id,Account> accountMap = new Map <Id, Account> ([SELECT Id, Status__c, Property__r.Status__c FROM Account WHERE Id IN: setOfIds]);
+        
+        //if property status is null fill with the related account status 
         for(Property__c property : propertyList){
             if(property.Status__c == Null){
                 if(accountMap.get(property.Account__c).Property__r.Status__c != Null){
