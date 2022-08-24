@@ -49,24 +49,34 @@ public class StateTriggerHandler {
             }
         }
         
-        //List to update number of state on country 
-        List<Country__c> totalStateToUpdateOnCountry = new List<Country__c>();
+        Map<Id, Country__c> countryMap = new Map<Id, Country__c>();
         
         //list on country with old data
         List<Country__c> countryOldList = [SELECT Id, Name , Country_JSON_Data__c ,Total_Number_of_Districts__c, Total_Number_of_States__c, (SELECT Id FROM States__r)
                                            FROM Country__c WHERE Id IN: countryIdSet];
         
-        	//function to count total number of state on country
-            for(Country__c country : countryOldList){
-                if(countryIdSet != Null){
-                    country.Total_Number_of_States__c = country.States__r.Size();
-                    totalStateToUpdateOnCountry.add(country);
-                }
-            }
+        //loop to fill countryMap with countryOldList
+         for(Country__c country : countryOldList){
+             countryMap.put((Id)country.get('Id'),country);
+         }
         
-        if(totalStateToUpdateOnCountry.size()>0){
-            update totalStateToUpdateOnCountry;
+        AggregateResult[] stateAggregateResultGroupByCountry = [SELECT Count(Id) total_State , Sum(Total_Number_of_Districts__c) sumOfTotalDistrictsOnCountry , Country_Name__c 
+                                                                   FROM State__c  GROUP BY Country_Name__c];
+        
+        	//function to count total number of state on country
+        for(AggregateResult ar : stateAggregateResultGroupByCountry){
+            Id countryId = (Id)ar.get('Country_Name__c');
+            
+            if(countryMap.containsKey(countryId)){
+                countryMap.get(countryId).Id = countryId;
+                countryMap.get(countryId).Total_Number_of_Districts__c = (Decimal)ar.get('sumOfTotalDistrictsOnCountry');
+            }
         }
+            
+        if(countryMap.Size()>0){
+            update countryMap.values();
+        }
+       
     }
     
     
