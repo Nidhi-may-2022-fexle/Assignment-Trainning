@@ -154,70 +154,57 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
-        <fullName>Country_Name__c</fullName>
+        <fullName>Account__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Country Name</label>
-        <referenceTo>Country__c</referenceTo>
-        <relationshipLabel>States</relationshipLabel>
-        <relationshipName>States</relationshipName>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Properties</relationshipLabel>
+        <relationshipName>Properties</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>State_Code__c</fullName>
+        <fullName>Status__c</fullName>
         <externalId>false</externalId>
-        <label>State Code</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>State_JSON_Data__c</fullName>
-        <externalId>false</externalId>
-        <label>State JSON Data</label>
-        <length>32768</length>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
-        <fullName>State_s_Country__c</fullName>
-        <externalId>false</externalId>
-        <formula>HYPERLINK (Id, Country_Name__r.Name&amp; &quot;=&gt;&quot; &amp;Name)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>State&apos;s Country</label>
+        <label>Status</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Property</fullName>
+                    <default>false</default>
+                    <label>Property</label>
+                </value>
+                <value>
+                    <fullName>Contact</fullName>
+                    <default>false</default>
+                    <label>Contact</label>
+                </value>
+                <value>
+                    <fullName>Account</fullName>
+                    <default>false</default>
+                    <label>Account</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
-    <fields>
-        <fullName>Total_Number_of_Districts__c</fullName>
-        <externalId>false</externalId>
-        <label>Total Number of Districts</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <label>State</label>
+    <label>Property</label>
     <listViews>
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
     <nameField>
-        <label>State Name</label>
+        <label>Property Name</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>States</pluralLabel>
+    <pluralLabel>Properties</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
