@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="Calculator" icon-name="standard:number_input">
+        <div class="slds-var-m-around_medium">
+
+            <lightning-input
+                type = "number"
+                name="firstNumber"
+                value = {firstNumber}
+                label="Enter The First Number"
+                onchange={handleChange1}
+            ></lightning-input>
+
+            <lightning-input
+                type = "number"
+                name="secondNumber"
+                value = {secondNumber}
+                label="Enter The Second Number"
+                onchange={handleChange2}
+            ></lightning-input>
+
+        </div>
+
+        <div class="slds-box slds-theme_shade">
+            <lightning-layout horizontal-align="space">
+                <lightning-button label="Add" variant="Brand" onclick={add}> </lightning-button> 
+                <lightning-button label="Subtract" variant="Brand" onclick={Subtract}> </lightning-button>  
+                <lightning-button label="Multiply" variant="Brand" onclick={Multiply}> </lightning-button>  
+                <lightning-button label="Divide" variant="Brand" onclick={Divide}> </lightning-button>
+
+            </lightning-layout>
+            
+        </div>
+
+        <div class="slds-box slds-theme_shade">
+            <b> Result : {result} </b>
+        </div>  
+
+    </lightning-card>
+
+</template>

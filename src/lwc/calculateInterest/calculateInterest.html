@@ -1,0 +1,48 @@
+<template>
+
+    <lightning-card title="Calculator To Calculate Interest" icon-name="standard:number_input">
+        <div class="slds-var-m-around_medium">
+
+            <lightning-input
+                type = "number"
+                name="principalAmount"
+                value = {principalAmount}
+                label="Principal Amount"
+                onchange={principalAmountHandleChange}
+            ></lightning-input>
+
+            <lightning-input
+                type = "number"
+                name="time"
+                value = {time}
+                label="Time"
+                onchange={timeHandleChange}
+            ></lightning-input>
+
+
+            <lightning-input
+                type = "number"
+                name="rate"
+                value = {rate}
+                label="Rate"
+                onchange={rateHandleChnage}
+            ></lightning-input>
+
+        </div>
+
+         <div class="slds-box slds-theme_shade">
+            <lightning-layout horizontal-align="space">
+                <lightning-button label="Simple Interest" variant="Brand" onclick={simpleInterest}> </lightning-button> 
+                <lightning-button label="Compound Interest" variant="Brand" onclick={compoundInterest}> </lightning-button>  
+
+            </lightning-layout>
+            
+        </div>
+
+        <div class="slds-box slds-theme_shade">
+            <b> {result} </b>
+        </div>
+
+    </lightning-card>
+
+</template>
