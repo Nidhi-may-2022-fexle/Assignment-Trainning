@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="ChildToParentChartBar" >
+        <c-child-Progressbar-Assignment onchildvaluechange ={handleParentChange}></c-child-Progressbar-Assignment>
+
+        <div>{percentage}% </div>
+        <div>
+            <lightning-progress-bar value ={percentage} size = "large"></lightning-progress-bar>
+        </div>
+
+    </lightning-card>
+
+</template>
