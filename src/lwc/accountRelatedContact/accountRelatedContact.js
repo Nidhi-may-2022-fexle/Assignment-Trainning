@@ -36,13 +36,16 @@ export default class AccountRelatedContact extends LightningElement {
     caseList;
     oppList;
     accountId;
+    viewTable = false;
 
     contactcolumns = [{ label: 'FirstName', fieldName: 'FirstName' }, {label:'LastNmae', fieldName: 'LastName'} ,{ label: 'Id', fieldName: 'Id'}];
     caseColumns = [{label: 'SuppliedName', fieldName: 'SuppliedName'}, {label: 'Id', fieldName: 'Id'}];
     opportunityColumns = [{label: 'Name', fieldName: 'Name' }, {label: 'Id', fieldName: 'Id' }];
 
-    accountIdChangeHandle(event){
-        this.accountId = event.target.value;
+    handleClick(event){
+        this.viewTable = true;
+        var inp = this.template.querySelector("lightning-input");
+        this.accountId = inp.value;
         this.relatedRecord();
     }
 

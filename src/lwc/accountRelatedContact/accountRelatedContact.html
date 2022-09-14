@@ -45,13 +45,14 @@
 
         <div class="slds-var-m-around_medium">
             <br>
-            <lightning-input label="accIdWithWire" onchange={accountIdChangeHandle}></lightning-input>
+            <lightning-input label="accIdWithWire" ></lightning-input>
             <br>
-            <lightning-button variant="brand" label="Search"  onclick={accountIdChange}></lightning-button>
+            <lightning-button variant="brand" label="Search"  onclick={handleClick}></lightning-button>
 
         </div>
+        <template if:true={viewTable}>
 
-        <div class="slds-var-m-around_medium">
+        <div  class="slds-var-m-around_medium">
             <br>
             Contact Table: <br>
             <lightning-datatable data={contactList} columns={contactcolumns} key-field='accId'></lightning-datatable> <br>
@@ -63,6 +64,7 @@
             <lightning-datatable data={caseList} columns={caseColumns} key-field='accId'></lightning-datatable> <br>
 
         </div>
+        </template>
 
     </lightning-card>
 
