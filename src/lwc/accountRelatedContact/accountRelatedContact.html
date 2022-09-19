@@ -1,0 +1,71 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+
+    <lightning-card title="DisplayContactandCaseRalatedToAccount" >
+        <div class="slds-var-m-around_medium">
+            <p class="slds-var-m-bottom_small">
+                <lightning-button label="Load Account" onclick={handleShow}>
+
+                </lightning-button>
+            </p>
+            <template if:true={accountName}>
+                <lightning-datatable key-field="id" data={accountNameWithWire} columns={acccolumns}>
+
+                </lightning-datatable>
+
+                <!--  <template for:each={accountName} for:item="account">
+                    <p key={account.Id}>{account.Name}</p>
+                </template> -->
+
+            </template>
+            <template if:true={error}>
+                <c-error-panel errors={error}></c-error-panel>
+            </template>
+        </div>
+
+     <!---   <div>
+            <lightning-input label="accIdWithWire" onchange={changeHandleWithWire}>
+                Contact Table: <br>
+                <lightning-datatable data={contactNameWithWire} columns={contactcolumns} key-field='Id'>
+
+                </lightning-datatable> <br>
+                Case Table: <br>
+                <lightning-datatable data={caseWithWire} columns={caseColumns} key-field='Id'>
+
+                </lightning-datatable> <br>
+
+            </lightning-input>
+
+        </div> -->
+
+     <!---   <div>
+            <lightning-button variant="brand" label="Search"  onclick={changeHandle}></lightning-button>
+        </div> -->
+
+        <div class="slds-var-m-around_medium">
+            <br>
+            <lightning-input label="accIdWithWire" ></lightning-input>
+            <br>
+            <lightning-button label="Search"  onclick={handleClick}></lightning-button>
+
+        </div>
+        <template if:true={viewTable}>
+
+        <div  class="slds-var-m-around_medium">
+            <br>
+            Contact Table: <br>
+            <lightning-datatable data={contactList} columns={contactcolumns} key-field='accId'></lightning-datatable> <br>
+
+            Opportunity Table: <br>
+            <lightning-datatable data={oppList} columns ={opportunityColumns} key-field = 'accId'></lightning-datatable> <br>
+
+            Case Table: <br>
+            <lightning-datatable data={caseList} columns={caseColumns} key-field='accId'></lightning-datatable> <br>
+
+        </div>
+        </template>
+
+    </lightning-card>
+
+</template>
